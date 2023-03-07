@@ -2,6 +2,9 @@
 import { ref, computed } from "vue";
 import { useFileDialog } from "@vueuse/core";
 import axios from "axios";
+
+const runtimeConfig = useRuntimeConfig();
+
 const { files, open }: any = useFileDialog();
 const newKey = ref("");
 const signedUrl = ref("");
@@ -28,7 +31,7 @@ const getUploadSignedUrl = async () => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: import.meta.env.VITE_API_KEY,
+      Authorization: runtimeConfig.API_KEY || "1234",
     },
     body: JSON.stringify(body),
   };
