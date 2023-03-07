@@ -26,6 +26,7 @@ const getUploadSignedUrl = async () => {
   const body = {
     key: newKey.value,
     contentType: fileType.value,
+    accelerate: true,
   };
   const options = {
     method: "POST",
