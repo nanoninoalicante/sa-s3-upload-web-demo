@@ -61,7 +61,7 @@ const upload = async () => {
     url: signedUrl.value,
     headers: { "Content-Type": fileType.value },
     onUploadProgress: (progressEvent: any) =>
-      updateProgressAxiosV0(progressEvent),
+      updateProgressAxiosV1(progressEvent),
     data: file.value,
   };
   const res = await axios
